@@ -18,13 +18,9 @@ import java.util.Map;
 
 import static com.oancea.utils.Constants.*;
 
+
 @RestController
 public class RegisterControllerImpl implements RegisterController {
-    private static final String FIRST_NAME = "First name ";
-
-    private static final String LAST_NAME = "Last name ";
-
-    public static final String IS_ACTIVE = "Is active";
 
     private static final String CREATE_USER_METHOD = "createUser";
 
@@ -42,10 +38,7 @@ public class RegisterControllerImpl implements RegisterController {
     public ResponseEntity<ResponseCreateUser> createUser(UserRegisterRequest userRegisterRequest) {
         Map<String, String> logIdentifiers = new HashMap<>();
         logIdentifiers.put(TYPE, INPUT);
-        logIdentifiers.put(EMAIL, userRegisterRequest.getEmail());
-        logIdentifiers.put(FIRST_NAME, userRegisterRequest.getFirstName());
-        logIdentifiers.put(LAST_NAME, userRegisterRequest.getLastName());
-        logIdentifiers.put(IS_ACTIVE, userRegisterRequest.getIsActive().toString());
+        registerService.inputLogIdentifiers(userRegisterRequest, logIdentifiers);
         sensitiveLog.logSensitive(userRegisterRequest, logIdentifiers, CREATE_USER_PATH, CREATE_USER_METHOD, LOGGER, null, null);
 
         ResponseCreateUser response = registerService.createUser(userRegisterRequest);
@@ -65,3 +58,4 @@ public class RegisterControllerImpl implements RegisterController {
         return ResponseEntity.status(400).body(response);
     }
 }
+
