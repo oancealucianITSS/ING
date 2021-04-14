@@ -8,7 +8,7 @@ We have 3 enpoints ( please find curls to use in Postman:
 curl --location --request POST 'http://localhost:8101/rest/api/db/createUser' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-    "email": "ioan1.oancea@itsmartsystems.eu",
+    "email": "lucian.oancea@itsmartsystems.eu",
     "password": "test",
     "firstName": "Oancea",
     "lastName": "Lucian",
