@@ -1,4 +1,4 @@
-# ing
+# ing - please use develop branch
 I used liquibase to create tables and MySql as database where it needs to create schema "ing" and credentials for connection are in application.yml.
 (those can be changed, but also to actualize profile liquibase from pom.xml)
 It should be checked liquibase profile, reload maven, and from maven bar in plugins select liquibase -> liquibase: update
